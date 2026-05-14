@@ -12,6 +12,14 @@ html,body {
    
 }
 
+
+.dogorcar-product-section,
+.testimonial-section,
+.why-section {
+  margin-top: 70px;
+}
+
+
 /*top bar*/
 .top-bar {
   position: relative;
@@ -127,7 +135,7 @@ html,body {
 /*hero*/
 .hero {
   position: relative;
-  height: 850px;
+  height: 910px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -188,9 +196,155 @@ html,body {
   background:#F8F6F2;
   color:#12284C;
   padding: 16px 32px;
-  border-radius: 999px;
+  border-radius: 80px;
   text-decoration: none;
   font-weight: 450;
 }
 
+/* tab cat or dog product */
+.dogorcar-product-section {
+  padding: 0px 48px;
+}
 
+.pet-tab {
+  width: 560px;
+  margin: 0 auto 48px;
+  display: flex;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.tab,.tab-active {
+  flex: 1;
+  border: none;
+  padding: 25px;
+  font-size: 30px;
+  background:#ADAEB0;
+  color:#F8F6F2;
+  cursor: pointer;
+}
+
+.tab-active {
+  background:#12284C;
+}
+
+.product-grid {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+}
+
+.product-grid.active {
+  display: grid;
+}
+
+.Fordogorcat-product-card {
+  position: relative;
+  height: 550px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.Fordogorcat-product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Fordogorcat-product-card button {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  border: none;
+  border-radius: 18px;
+  background:#F8F6F2;
+  color:#12284C;
+  padding: 18px 56px;
+  font-size: 25px;
+}
+
+
+
+/* for testimonial */
+.testimonial-section {
+  padding: 10px 48px;
+  margin-left: 48px;
+  margin-right: 48px;
+  background:#D9D9D9;
+  border-radius: 24px;
+  text-align: center;
+}
+
+.testimonial-section h2 {
+  font-size: 56px;
+  margin-bottom:  30px;
+}
+
+.Testimonial-sen {
+  max-width: 720px;
+  margin: 0 auto 56px;
+  font-size: 22px;
+}
+
+.testimonial-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 40px;
+}
+
+.review-bn {
+  width: 130px;
+  padding: 14px 0;
+  border: none;
+  border-radius: 80px;
+  background: #FF8929;
+  cursor: pointer;
+}
+
+.review-bn.active {
+  background:#12284C;
+  color:#F8F6F2;
+}
+
+.review-display {
+  
+  gap: 48px;
+  align-items: end;
+  
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+
+
+.main-review {
+  position:relative;
+  min-height: 430px;
+  background:#12284C;
+  color:#F8F6F2;
+  border-radius: 20px;
+  padding: 250px 48px 48px;
+  display: flex;
+  align-items:center;
+  flex-direction: column;
+  
+}
+
+.main-review img {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#review-name {
+
+  font-weight: 600;
+
+}
