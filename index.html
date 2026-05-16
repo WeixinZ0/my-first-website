@@ -189,9 +189,9 @@
 
          <!-- top-->
         <div class="cart-drawer-head">
-          <div class="drawer-group">
+          <div class="drawer-group"><h2>Your Cart</h2>
         <span class="drawer-cart-count" id="drawer-cart-count">0</span></div>
-        <h2>Your Cart</h2>
+        
         <button class="cart-close" onclick="closeCart()"><svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0.5 0.5L9.6695 9.44026M9.6695 0.5L0.5 9.44026" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -212,7 +212,7 @@
       <p class="side-cart-category">Freeze-Dried Treats for Dog and Cat</p>
       <h3>Whole Green Lip Mussels</h3>
       <p>$18.25</p></div>
-      <button class="remove-items">
+      <button class="remove-items" onclick="removeItem(this)">
         <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0.5 0.5L9.6695 9.44026M9.6695 0.5L0.5 9.44026" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -221,9 +221,9 @@
     </div>
 
     <div class="quantity-item">
-      <button>-</button>
+      <button  onclick="changeQuantity(-1)">-</button>
       <span>1</span>
-      <button>+</button>
+      <button onclick="changeQuantity(1)">+</button>
     </div>
   </div>
         </div>

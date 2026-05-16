@@ -90,30 +90,74 @@ if (searchInput) {
   });
 }
 
-// add to cart
+// add to cart link to the refresh of the cart
+const quantityText = document.querySelector(".quantity-item span");
 let count = Number(localStorage.getItem("cartCount")) || 0;
 
 const cartCount = document.getElementById("cart-count");
 
+
+
 const drawerCartCount = document.getElementById("drawer-cart-count");
 
 function updateCartCount() {
-
   if (cartCount) {
     cartCount.textContent = count;
   }
-
   if (drawerCartCount) {
-    drawerCartCount.textContent = count;
+    drawerCartCount.textContent = count;}
+  if (quantityText) {
+    quantityText.textContent = count;
   }
+  localStorage.setItem("cartCount", count);
 }
 
 updateCartCount();
 function addToCart() {
-count++;
-  localStorage.setItem("cartCount", count);
+  count++;
+  updateCartCount();
+  openCart();
+}
+
+//加或-
+function changeQuantity(value) {
+  const quantityText = document.querySelector(".quantity-item span");
+  count += value;
+  if (count <= 0) {
+    removeItem(document.querySelector(".remove-items"));
+    return;
+  }
+  if (quantityText) {
+    quantityText.textContent = count;
+  }
+  
   updateCartCount();
 }
+
+// remove
+function removeItem(button) {
+  const item = button.closest(".side-cart-item");
+
+  if (item) {
+    item.remove();
+  }
+  count = 0;
+  updateCartCount();
+}
+
+// drawer
+function openCart(event) {
+  if (event) event.preventDefault();
+  document.getElementById("cartDrawer").classList.add("active");
+  document.getElementById("cartOverlay").classList.add("active");
+}
+function closeCart() {
+  document.getElementById("cartDrawer").classList.remove("active");
+  document.getElementById("cartOverlay").classList.remove("active");
+}
+
+
+
 //open drawer
 function openCart(event) {
   event.preventDefault();
@@ -125,3 +169,6 @@ function closeCart() {
   document.getElementById("cartDrawer").classList.remove("active");
   document.getElementById("cartOverlay").classList.remove("active");
 }
+
+
+
