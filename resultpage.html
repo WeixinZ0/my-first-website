@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for result page</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- i will use Chinese intead some notes-->
+     <!-- 这部分是用于顶部运动行-->
+    <div class="top-bar">
+      <span>FREE SHIPPING OVER $150</span>
+      <span>100% NATURAL INGREDIENTS</span>
+      <span>AUSTRALIAN MADE PET TREATS</span>
+      </div>
+    
+    <!-- 这部分是用于防止logo等-->
+    <header class=" header-on-top">
+        
+        <nav class="nav-left">
+          <a href="#">About FREEZE DRY AUSTRALIA</a>
+          <a href="#">Shop for Dog</a>
+          <a href="#">Shop for Cat</a></nav>
+        <div class="logo">
+          <a href="index.html"><img src="img\frezzylogo.svg" alt="logo-image"></a></div>
+        
+        <div class="nav-right">
+          <a href="search.html">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.6667 14.6667L11.1667 11.1667M6.75 13C10.2017 13 13 10.2017 13 6.75C13 3.29822 10.2017 0.5 6.75 0.5C3.29822 0.5 0.5 3.29822 0.5 6.75C0.5 10.2017 3.29822 13 6.75 13Z" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+          </a>
+          <a href="#">
+            <svg width="13" height="17" viewBox="0 0 13 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 15.3258V15.1458C0.5 11.8667 3.15831 9.20833 6.4375 9.20833C9.71666 9.20833 12.375 11.8667 12.375 15.1458V15.3258C12.375 15.6636 12.1011 15.9375 11.7633 15.9375H1.11174C0.773885 15.9375 0.5 15.6636 0.5 15.3258Z" stroke="#12284C" stroke-linejoin="round"/>
+<path d="M6.17361 7.625C8.14113 7.625 9.73611 6.03001 9.73611 4.0625C9.73611 2.09499 8.14113 0.5 6.17361 0.5C4.2061 0.5 2.61111 2.09499 2.61111 4.0625C2.61111 6.03001 4.2061 7.625 6.17361 7.625Z" stroke="#12284C" stroke-linejoin="round"/>
+</svg>
+
+          </a>  
+          <a href="resultpage.html" class="cart-link"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.95211 3.66667C9.95211 5.19696 8.71157 6.4375 7.18128 6.4375C5.65099 6.4375 4.41043 5.19696 4.41043 3.66667M1.19993 1.24518L0.501394 13.1202C0.474651 13.5749 0.836197 13.9583 1.2917 13.9583H13.0708C13.5263 13.9583 13.8879 13.5749 13.8611 13.1202L13.1626 1.24518C13.138 0.826737 12.7914 0.5 12.3723 0.5H1.99023C1.57106 0.5 1.22454 0.826737 1.19993 1.24518Z" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> <span id="cart-count">0</span>
+</a></div>
+        
+
+    </header>
+
+   <main class="result-main">
+    <h1>Search result</h1>
+    <div class="result-search-bar">
+      <img src="img\search-icon.svg" alt="search">
+      <input type="text" value="food">
+    </div>
+
+    <div class="result-quantity">
+      <p>20 Products</p>
+      <div class="result-filter">
+        <span>Filter</span><span>Sort By: Relevant</span>
+    </div></div>
+      
+
+    <div class="result-grid">
+        <article class="result-card">
+        <a href="chickenB.html" class="product-image-link">
+        <img src="img\chickenbreas.png" alt="Chicken Breast"></a>
+        
+         <div class="result-card-info">
+          <p class="category">Freeze-Dried Treats for Dog and Cat</p>
+           <a href="chickenB.html" class="product-title-link"><h2>Diced Chicken Breast Pet Treat</h2></a>
+          <div class="stars"><img src="img\star.svg" alt="star"></div>
+          <p class="price-result">$19.5</p>
+          <button onclick="addToCart()">Add to cart</button>
+        </div>
+      </article>
+
+      <article class="result-card">
+         <a href="chickenB.html" class="product-image-link"><img src="img\lamb.png" alt="Lamb Hearts">
+</a>
+        <div class="result-card-info">
+          <p class="category">Freeze-Dried Treats for Dog and Cat</p>
+           <a href="chickenB.html" class="product-title-link"><h2>Diced Lamb Hearts Pet Treat</h2></a>
+          <div class="stars"><img src="img\star.svg" alt="star"></div>
+          <p class="price-result">$13.7</p>
+          <button onclick="addToCart()">Add to cart</button>
+        </div>
+      </article>
+
+
+      <article class="result-card">
+         <a href="chickenB.html" class="product-image-link"><img src="img\musule.png" alt="Lamb Hearts">
+</a>
+        <div class="result-card-info">
+          <p class="category">Freeze-Dried Treats for Dog and Cat</p>
+           <a href="chickenB.html" class="product-title-link"><h2>Whole Green Lip Mussels Pet Treat</h2></a>
+          <div class="stars"><img src="img\star.svg" alt="star"></div>
+          <p class="price-result">$13.7</p>
+          <button onclick="addToCart()">Add to cart</button>
+        </div>
+      </article>
+
+      
+
+
+      <article class="result-card">
+         <a href="chickenB.html" class="product-image-link"><img src="img\musule.png" alt="Lamb Hearts">
+</a>
+        <div class="result-card-info">
+          <p class="category">Freeze-Dried Treats for Dog and Cat</p>
+           <a href="chickenB.html" class="product-title-link"><h2> Green Lip Mussels Pet Treat</h2></a>
+          <div class="stars"><img src="img\star.svg" alt="star"></div>
+          <p class="price-result">$18.25</p>
+          <button onclick="addToCart()">Add to cart</button>
+        </div>
+      </article>
+      
+
+
+       <article class="result-card">
+        <a href="chickenB.html" class="product-image-link"> <img src="img\dogdailyfo.png" alt="Green Lip Mussels">
+</a>
+        <div class="result-card-info">
+          <p class="category">Daily Food for Cat</p>
+           <a href="chickenB.html" class="product-title-link"><h2>100% Raw Cat Food Lamb Pet Treat</h2></a>
+          <div class="stars"><img src="img\star.svg" alt="star"></div>
+          <p class="price-result">$9.5 - 79.5</p>
+          <button>Choose option</button>
+        </div>
+      </article>
+
+    
+
+
+    </div>
+   </main>
+
+
+
+
+
+
+
+
+ <!-- 这部分是用于结尾-->
+ <footer class="site-footer">
+  <div class="footer">
+    <img class="logo-footer"src="img\frezzylogo.svg" alt="Freeze Dry Australia logo">
+
+    <p>Freeze Dry Australia</p>
+    <p>103-107 Quanda Road Coolum Beach,<br>4573, Queensland</p>
+    <p>info@freezedryaustralia.com</p>
+
+    <a href="https://www.facebook.com/freezedryaustralia/" class="social-icon"><img src="img\facebook1.svg" alt="facebool"></a>
+  </div>
+
+  <div class="footer-links">
+    <h3>Shop</h3>
+    <a href="#">For Dog</a>
+    <a href="#">For Cat</a>
+  </div>
+  <div class="footer-links">
+    <h3>About</h3>
+    <a href="#">Contact us</a>
+    <a href="#">Shipping & Delivery</a>
+    <a href="#">Subscription policy</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">FAQ</a>
+    <a href="#">Term of us</a>
+  </div>
+    <div class="footer-message">
+    <h2>
+      Freeze Dry Australia is the first <br>Freeze Drying Company in Australia that<br>
+      manufactures freeze dried treats and meals<br> for pets.
+    </h2>
+
+    <p>© 2026 Freeze Dry Australia</p>
+  </div>
+</footer>   
+    <script src="free.js"></script>
+                 
+</body>
+</html>

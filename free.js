@@ -1,5 +1,5 @@
 /*for homepage btn cat or dog*/
-const petButtons = document.querySelectorAll(".pet-tab button");
+const petButtons = document.querySelectorAll(".pet-tab button ");
 const productGrids = document.querySelectorAll(".product-grid");
 
 petButtons.forEach((button) => {
@@ -69,3 +69,59 @@ reviewButtons.forEach((button) => {
     document.getElementById("review-name").textContent = selectedReview.name;
   });
 });
+
+
+//this is for search result
+const searchInput = document.getElementById("search-input");
+const productsArea =document.getElementById("products-show");
+const suggestionArea = document.querySelector(".search-suggestion");
+
+if (searchInput) {
+  searchInput.addEventListener("input", function () {
+    const value = searchInput.value.trim().toLowerCase();
+
+    if (value === "food") {
+      productsArea.style.display = "block";
+      suggestionArea.style.display = "flex";
+    } else {
+      productsArea.style.display = "none";
+      suggestionArea.style.display = "none";
+    }
+  });
+}
+
+// add to cart
+let count = Number(localStorage.getItem("cartCount")) || 0;
+
+const cartCount = document.getElementById("cart-count");
+
+const drawerCartCount = document.getElementById("drawer-cart-count");
+
+function updateCartCount() {
+
+  if (cartCount) {
+    cartCount.textContent = count;
+  }
+
+  if (drawerCartCount) {
+    drawerCartCount.textContent = count;
+  }
+}
+
+updateCartCount();
+function addToCart() {
+count++;
+  localStorage.setItem("cartCount", count);
+  updateCartCount();
+}
+//open drawer
+function openCart(event) {
+  event.preventDefault();
+  document.getElementById("cartDrawer").classList.add("active");
+  document.getElementById("cartOverlay").classList.add("active");
+ }
+
+function closeCart() {
+  document.getElementById("cartDrawer").classList.remove("active");
+  document.getElementById("cartOverlay").classList.remove("active");
+}

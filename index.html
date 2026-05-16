@@ -31,9 +31,23 @@
           <a href="index.html"><img src="img\frezzylogo.svg" alt="logo-image"></a></div>
         
         <div class="nav-right">
-          <a href="#"><img src="img\search-icon.svg" alt="Search"></a>
-          <a href="#"><img src="img\personal-login.svg" alt="personal-login"></a>  
-          <a href="#"><img src="img\cart.svg" alt="cart"></a></div>
+          <a href="search.html">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.6667 14.6667L11.1667 11.1667M6.75 13C10.2017 13 13 10.2017 13 6.75C13 3.29822 10.2017 0.5 6.75 0.5C3.29822 0.5 0.5 3.29822 0.5 6.75C0.5 10.2017 3.29822 13 6.75 13Z" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+          </a>
+          <a href="#">
+            <svg width="13" height="17" viewBox="0 0 13 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 15.3258V15.1458C0.5 11.8667 3.15831 9.20833 6.4375 9.20833C9.71666 9.20833 12.375 11.8667 12.375 15.1458V15.3258C12.375 15.6636 12.1011 15.9375 11.7633 15.9375H1.11174C0.773885 15.9375 0.5 15.6636 0.5 15.3258Z" stroke="#12284C" stroke-linejoin="round"/>
+<path d="M6.17361 7.625C8.14113 7.625 9.73611 6.03001 9.73611 4.0625C9.73611 2.09499 8.14113 0.5 6.17361 0.5C4.2061 0.5 2.61111 2.09499 2.61111 4.0625C2.61111 6.03001 4.2061 7.625 6.17361 7.625Z" stroke="#12284C" stroke-linejoin="round"/>
+</svg>
+
+          </a>  
+          <a href="#" class="cart-link" onclick="openCart(event)"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.95211 3.66667C9.95211 5.19696 8.71157 6.4375 7.18128 6.4375C5.65099 6.4375 4.41043 5.19696 4.41043 3.66667M1.19993 1.24518L0.501394 13.1202C0.474651 13.5749 0.836197 13.9583 1.2917 13.9583H13.0708C13.5263 13.9583 13.8879 13.5749 13.8611 13.1202L13.1626 1.24518C13.138 0.826737 12.7914 0.5 12.3723 0.5H1.99023C1.57106 0.5 1.22454 0.826737 1.19993 1.24518Z" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
+</svg><span id="cart-count">0</span>
+</a></div>
         
 
     </header>
@@ -167,6 +181,70 @@
 
 
       </main>
+
+
+   <!-- 这部分是用于drawer-->
+      <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+      <aside class="cart-drawer" id="cartDrawer">
+
+         <!-- top-->
+        <div class="cart-drawer-head">
+          <div class="drawer-group">
+        <span class="drawer-cart-count" id="drawer-cart-count">0</span></div>
+        <h2>Your Cart</h2>
+        <button class="cart-close" onclick="closeCart()"><svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 0.5L9.6695 9.44026M9.6695 0.5L0.5 9.44026" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button></div>
+
+ <!-- shipping bar-->
+
+ <div class="drawer-shipping">
+  <p>Spend $131.75 more to reach free shipping!</p>
+
+  <div class="shipping-bar">
+      <div class="shipping-progress"></div></div></div>
+
+        
+        <div class="side-cart-item">
+          <img src="img/musule.png" alt="Green Lip Mussels">
+          <div class="side-cart-sentence"> <div class="side-cart-info"><div>
+      <p class="side-cart-category">Freeze-Dried Treats for Dog and Cat</p>
+      <h3>Whole Green Lip Mussels</h3>
+      <p>$18.25</p></div>
+      <button class="remove-items">
+        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 0.5L9.6695 9.44026M9.6695 0.5L0.5 9.44026" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+      </button>
+    </div>
+
+    <div class="quantity-item">
+      <button>-</button>
+      <span>1</span>
+      <button>+</button>
+    </div>
+  </div>
+        </div>
+
+  <div class="side-cart-bottom">
+    <div class="side-cart-total">
+      <span>Estimated total</span>
+      <strong>$18.25 AUD</strong>
+    </div>
+
+    <p class="shipping-note">Taxes and shipping calculated at checkout</p>
+    <div class="drawer-buttons">
+      <a href="cart.html" class="view-cart-btn">
+        View Cart
+      </a>
+      <a href="checkout.html" class="checkout-btn">
+        Check Out
+      </a>
+    </div>
+  </div>
+</aside>
 
 
 
