@@ -90,85 +90,131 @@ if (searchInput) {
   });
 }
 
-// add to cart link to the refresh of the cart
+// add to cart and link to the refresh of the cart
 const quantityText = document.querySelector(".quantity-item span");
-let count = Number(localStorage.getItem("cartCount")) || 0;
+let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
 
 const cartCount = document.getElementById("cart-count");
-
-
-
 const drawerCartCount = document.getElementById("drawer-cart-count");
+const cartItemsContainer = document.getElementById("cart-items");
 
-function updateCartCount() {
-  if (cartCount) {
-    cartCount.textContent = count;
-  }
-  if (drawerCartCount) {
-    drawerCartCount.textContent = count;}
-  if (quantityText) {
-    quantityText.textContent = count;
-  }
-  localStorage.setItem("cartCount", count);
+function saveCart() {
+  localStorage.setItem("cartItems", JSON.stringify(cart));
 }
 
-updateCartCount();
-function addToCart() {
-  count++;
-  updateCartCount();
+function updateCartCount() {
+  const total = cart.reduce((sum, item) =>sum + item.qty, 0);
+
+  if (cartCount) cartCount.textContent = total;
+  if (drawerCartCount) drawerCartCount.textContent = total;
+}
+
+// select the product words to test add or no
+function addToCart(btnCard) {
+  const card = btnCard.closest(".result-card");
+  const name = card.querySelector("h2").textContent;
+  const category = card.querySelector(".category").textContent;
+  const price = card.querySelector(".price-result").textContent;
+  const image = card.querySelector("img").src;
+  const existing = cart.find(item => item.name === name);
+
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({
+      name,
+      category,
+      price,
+      image,
+      qty: 1
+    });
+  }
+
+  saveCart();
+  renderCart();
   openCart();
 }
 
-//加或-
-function changeQuantity(value) {
-  const quantityText = document.querySelector(".quantity-item span");
-  count += value;
-  if (count <= 0) {
-    removeItem(document.querySelector(".remove-items"));
-    return;
-  }
-  if (quantityText) {
-    quantityText.textContent = count;
-  }
-  
+//写入html的信息在cart
+function renderCart() {
+  cartItemsContainer.innerHTML = "";
+  cart.forEach(item => {
+    cartItemsContainer.innerHTML += `
+      <div class="side-cart-item">
+
+        <img src="${item.image}" alt="${item.name}">
+
+        <div class="side-cart-sentence">
+
+          <div class="side-cart-info">
+            <div>
+              <p class="side-cart-category">${item.category}</p>
+              <h3>${item.name}</h3>
+              <p>${item.price}</p>
+            </div>
+
+            <button class="remove-items"
+              onclick="removeItem('${item.name}')">
+             <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 0.5L9.6695 9.44026M9.6695 0.5L0.5 9.44026" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button></div>
+          
+          <div class="quantity-item">
+            <button onclick="changeQuantity('${item.name}', -1)">-</button>
+            <span>${item.qty}</span>
+            <button onclick="changeQuantity('${item.name}', 1)">+</button>
+          </div>
+
+        </div>
+      </div>
+    `;
+  });
+
   updateCartCount();
 }
 
-// remove
-function removeItem(button) {
-  const item = button.closest(".side-cart-item");
+function changeQuantity(name, value) {
+  const product = cart.find(item => item.name === name);
 
-  if (item) {
-    item.remove();
+  if (!product) return;
+
+  product.qty += value;
+
+  if (product.qty <= 0) {
+    cart = cart.filter(item => item.name !== name);
   }
-  count = 0;
-  updateCartCount();
+
+  saveCart();
+  renderCart();
 }
 
-// drawer
+function removeItem(name) {
+  cart = cart.filter(item => item.name !== name);
+
+  saveCart();
+  renderCart();
+}
+
 function openCart(event) {
   if (event) event.preventDefault();
+
   document.getElementById("cartDrawer").classList.add("active");
   document.getElementById("cartOverlay").classList.add("active");
 }
+
 function closeCart() {
   document.getElementById("cartDrawer").classList.remove("active");
   document.getElementById("cartOverlay").classList.remove("active");
 }
 
+renderCart();
 
 
-//open drawer
-function openCart(event) {
-  event.preventDefault();
-  document.getElementById("cartDrawer").classList.add("active");
-  document.getElementById("cartOverlay").classList.add("active");
- }
 
-function closeCart() {
-  document.getElementById("cartDrawer").classList.remove("active");
-  document.getElementById("cartOverlay").classList.remove("active");
-}
+
+
+
 
 
 
