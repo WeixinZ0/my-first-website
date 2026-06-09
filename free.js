@@ -135,6 +135,9 @@ function addToCart(btnCard) {
   renderCart();
   openCart();
   updateShippingBar();
+  btnCard.textContent = "In Cart";
+  btnCard.disabled = true;
+  btnCard.classList.add("in-cart");
 }
 
 //写入html的信息在cart
@@ -235,6 +238,19 @@ function removeItem(name) {
   renderCart();
   updateShippingBar();
   updateCheckoutTotal();
+  document.querySelectorAll(".result-card").forEach(card => {
+
+  const nameInCard = card.querySelector("h2").textContent;
+
+  if (nameInCard === name) {
+
+    const button = card.querySelector("button");
+
+    button.textContent = "Add to Cart";
+    button.disabled = false;
+    button.classList.remove("in-cart");
+  }
+});
 }
 
 function openCart(event) {
@@ -336,3 +352,39 @@ function closeOrderPopup() {
 }
 
 document.addEventListener("DOMContentLoaded", showOrderPopup);
+
+function toggleAccordion(button){
+
+  const item =
+    button.closest(".accordion-item");
+
+  item.classList.toggle("active");
+
+}
+
+function addProductPageToCart(btn) {
+  const product = {
+    name: "Freeze Dried Diced Chicken Breast Pet Treats",
+    category: "Freeze-Dried Treats for Dog and Cat",
+    price: "$19.5",
+    image: "img/chickenbreas.png",
+    qty: 1
+  };
+
+  const existing = cart.find(item => item.name === product.name);
+
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push(product);
+  }
+
+  saveCart();
+  renderCart();
+  openCart();
+
+  btn.textContent = "In Cart";
+  btn.disabled = true;
+  btn.classList.add("in-cart");
+}
+

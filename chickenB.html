@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freezy homepage</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!-- i will use Chinese intead some notes-->
+     <!-- 这部分是用于顶部运动行-->
+    <div class="top-bar">
+      <span>FREE SHIPPING OVER $150</span>
+      <span>100% NATURAL INGREDIENTS</span>
+      <span>AUSTRALIAN MADE PET TREATS</span>
+      </div>
+    
+    <!-- 这部分是用于防止logo等-->
+    <header class=" header-on-top">
+        
+        <nav class="nav-left">
+          <a href="#">About FREEZE DRY AUSTRALIA</a>
+          <a href="#">Shop for Dog</a>
+          <a href="#">Shop for Cat</a></nav>
+        <div class="logo">
+          <a href="index.html"><img src="img\frezzylogo.svg" alt="logo-image"></a></div>
+        
+        <div class="nav-right">
+          <a href="search.html">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.6667 14.6667L11.1667 11.1667M6.75 13C10.2017 13 13 10.2017 13 6.75C13 3.29822 10.2017 0.5 6.75 0.5C3.29822 0.5 0.5 3.29822 0.5 6.75C0.5 10.2017 3.29822 13 6.75 13Z" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+          </a>
+          <a href="#">
+            <svg width="13" height="17" viewBox="0 0 13 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 15.3258V15.1458C0.5 11.8667 3.15831 9.20833 6.4375 9.20833C9.71666 9.20833 12.375 11.8667 12.375 15.1458V15.3258C12.375 15.6636 12.1011 15.9375 11.7633 15.9375H1.11174C0.773885 15.9375 0.5 15.6636 0.5 15.3258Z" stroke="#12284C" stroke-linejoin="round"/>
+<path d="M6.17361 7.625C8.14113 7.625 9.73611 6.03001 9.73611 4.0625C9.73611 2.09499 8.14113 0.5 6.17361 0.5C4.2061 0.5 2.61111 2.09499 2.61111 4.0625C2.61111 6.03001 4.2061 7.625 6.17361 7.625Z" stroke="#12284C" stroke-linejoin="round"/>
+</svg>
+
+          </a>  
+          <a href="#" class="cart-link" onclick="openCart(event)"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.95211 3.66667C9.95211 5.19696 8.71157 6.4375 7.18128 6.4375C5.65099 6.4375 4.41043 5.19696 4.41043 3.66667M1.19993 1.24518L0.501394 13.1202C0.474651 13.5749 0.836197 13.9583 1.2917 13.9583H13.0708C13.5263 13.9583 13.8879 13.5749 13.8611 13.1202L13.1626 1.24518C13.138 0.826737 12.7914 0.5 12.3723 0.5H1.99023C1.57106 0.5 1.22454 0.826737 1.19993 1.24518Z" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
+</svg><span id="cart-count">0</span>
+</a></div>
+        
+    </header>
+
+
+<main class="product-detail">
+
+<div class="smalllink">
+    <a href="index.html">Home</a>
+    <span>›</span>
+    <a href="resultpage.html">Search Result</a>
+  </div>
+  <!-- left scroll image area -->
+  <div class="product-gallery">
+    <img src="img/chickenbreas.png" alt="Chicken Breast">
+    <img src="img\treatchiken.png" alt="Chicken Breast Detail">
+    <img src="img\dogimage.jpg" alt="Chicken Breast Detail">
+  </div>
+
+  <!-- right product info -->
+  <div class="product-info">
+
+    <h1>Freeze Dried Diced Chicken Breast <br>Pet Treats</h1>
+
+     <div class="product-stars"><svg width="166" height="22" viewBox="0 0 83 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.17037 0.154885C5.26928 -0.051631 5.56405 -0.0516256 5.66296 0.154885L7.09312 3.14062C7.13294 3.22375 7.21224 3.28115 7.30378 3.29318L10.5957 3.72545C10.8234 3.75536 10.9145 4.03528 10.7479 4.1929L8.34015 6.46977C8.27304 6.53326 8.2427 6.62626 8.25955 6.71694L8.8641 9.96916C8.90592 10.1943 8.66742 10.3672 8.4656 10.2581L5.54677 8.67994C5.46563 8.63606 5.3677 8.63606 5.28656 8.67994L2.36774 10.2581C2.16593 10.3672 1.92741 10.1943 1.96925 9.96916L2.57377 6.71694C2.59062 6.62626 2.56029 6.53326 2.49319 6.46977L0.085462 4.1929C-0.0812089 4.03528 0.0099266 3.75536 0.237643 3.72545L3.52953 3.29318C3.62111 3.28115 3.70038 3.22375 3.7402 3.14062L5.17037 0.154885Z" fill="#FF8929"/>
+<path d="M23.1704 0.154885C23.2693 -0.051631 23.5641 -0.0516256 23.663 0.154885L25.0931 3.14062C25.1329 3.22375 25.2122 3.28115 25.3038 3.29318L28.5957 3.72545C28.8234 3.75536 28.9145 4.03528 28.7479 4.1929L26.3401 6.46978C26.273 6.53326 26.2427 6.62626 26.2595 6.71694L26.8641 9.96916C26.9059 10.1943 26.6674 10.3672 26.4656 10.2581L23.5468 8.67994C23.4656 8.63606 23.3677 8.63606 23.2866 8.67994L20.3677 10.2581C20.1659 10.3672 19.9274 10.1943 19.9693 9.96916L20.5738 6.71694C20.5906 6.62626 20.5603 6.53326 20.4932 6.46978L18.0855 4.1929C17.9188 4.03528 18.0099 3.75536 18.2376 3.72545L21.5295 3.29318C21.6211 3.28115 21.7004 3.22375 21.7402 3.14062L23.1704 0.154885Z" fill="#FF8929"/>
+<path d="M41.1704 0.154885C41.2693 -0.051631 41.5641 -0.0516256 41.663 0.154885L43.0931 3.14062C43.1329 3.22375 43.2122 3.28115 43.3038 3.29318L46.5957 3.72545C46.8234 3.75536 46.9145 4.03528 46.7479 4.1929L44.3401 6.46978C44.273 6.53326 44.2427 6.62626 44.2595 6.71694L44.8641 9.96916C44.9059 10.1943 44.6674 10.3672 44.4656 10.2581L41.5468 8.67994C41.4656 8.63606 41.3677 8.63606 41.2866 8.67994L38.3677 10.2581C38.1659 10.3672 37.9274 10.1943 37.9693 9.96916L38.5738 6.71694C38.5906 6.62626 38.5603 6.53326 38.4932 6.46978L36.0855 4.1929C35.9188 4.03528 36.0099 3.75536 36.2376 3.72545L39.5295 3.29318C39.6211 3.28115 39.7004 3.22375 39.7402 3.14062L41.1704 0.154885Z" fill="#FF8929"/>
+<path d="M59.1704 0.154885C59.2693 -0.051631 59.5641 -0.0516256 59.663 0.154885L61.0931 3.14062C61.1329 3.22375 61.2122 3.28115 61.3038 3.29318L64.5957 3.72545C64.8234 3.75536 64.9145 4.03528 64.7479 4.1929L62.3401 6.46978C62.273 6.53326 62.2427 6.62626 62.2595 6.71694L62.8641 9.96916C62.9059 10.1943 62.6674 10.3672 62.4656 10.2581L59.5468 8.67994C59.4656 8.63606 59.3677 8.63606 59.2866 8.67994L56.3677 10.2581C56.1659 10.3672 55.9274 10.1943 55.9693 9.96916L56.5738 6.71694C56.5906 6.62626 56.5603 6.53326 56.4932 6.46978L54.0855 4.1929C53.9188 4.03528 54.0099 3.75536 54.2376 3.72545L57.5295 3.29318C57.6211 3.28115 57.7004 3.22375 57.7402 3.14062L59.1704 0.154885Z" fill="#FF8929"/>
+<path d="M77.1704 0.154885C77.2693 -0.051631 77.5641 -0.0516256 77.663 0.154885L79.0931 3.14062C79.1329 3.22375 79.2122 3.28115 79.3038 3.29318L82.5957 3.72545C82.8234 3.75536 82.9145 4.03528 82.7479 4.1929L80.3401 6.46978C80.273 6.53326 80.2427 6.62626 80.2596 6.71694L80.8641 9.96916C80.9059 10.1943 80.6674 10.3672 80.4656 10.2581L77.5468 8.67994C77.4656 8.63606 77.3677 8.63606 77.2866 8.67994L74.3677 10.2581C74.1659 10.3672 73.9274 10.1943 73.9693 9.96916L74.5738 6.71694C74.5906 6.62626 74.5603 6.53326 74.4932 6.46978L72.0855 4.1929C71.9188 4.03528 72.0099 3.75536 72.2376 3.72545L75.5295 3.29318C75.6211 3.28115 75.7004 3.22375 75.7402 3.14062L77.1704 0.154885Z" fill="#FF8929"/>
+</svg>
+</div>
+
+    <p class="product-price">
+      $19.5 <span>Including GST</span>
+    </p>
+
+    <p class="product-size">Size: 100GM</p>
+
+    <div class="purchase-type">
+      <button class="purchase-active">Purchase one time</button>
+      <button>Subscribe and save 10%</button>
+    </div>
+
+    <div class="product-buy"><button onclick="addProductPageToCart(this)" class="add-cart-btn">Add to cart - $19.5</button>
+    </div>
+
+    <div class="accordion">
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Product Details</span>
+       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.94865 13.5217H17.0534M13.001 9.46935V17.5741M0.5 0.5H25.5V25.5H0.5V0.5Z" stroke="#FF8929" stroke-linecap="round"/>
+</svg>
+
+
+        </button>
+        <div class="accordion-content">
+          <p>Freeze Dry Australia’s Chicken Breast Chunks are made from 100% Chicken Breast making them a lean, protein-rich treat. </p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Nutritional Benefits</span>
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.94865 13.5217H17.0534M13.001 9.46935V17.5741M0.5 0.5H25.5V25.5H0.5V0.5Z" stroke="#FF8929" stroke-linecap="round"/>
+</svg>
+        </button>
+        <div class="accordion-content">
+          <p>Chicken breast chunks support pet health, boost the immune system, and aid weight loss.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Feeding Guide</span>
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.94865 13.5217H17.0534M13.001 9.46935V17.5741M0.5 0.5H25.5V25.5H0.5V0.5Z" stroke="#FF8929" stroke-linecap="round"/>
+</svg>
+        </button>
+        <div class="accordion-content">
+          <p>Feed as a treat or reward alongside a complete and balanced diet. Treats are intended for intermittent or supplemental feeding only.
+
+As with all treats, we recommend adjusting your cat’s main meal portions accordingly and monitoring overall intake.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Ingredients & Specifications</span>
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.94865 13.5217H17.0534M13.001 9.46935V17.5741M0.5 0.5H25.5V25.5H0.5V0.5Z" stroke="#FF8929" stroke-linecap="round"/>
+</svg>
+        </button>
+        <div class="accordion-content">
+          <p>Ingredients: 100% Chicken Breast. Weight: 0.1kg.</p>
+        </div></div></div>
+    </div></main>
+    <main class="result-main product-recommend">
+        <h1>You may also like</h1>
+        <div class="result-grid">
+            <article class="result-card">
+                <a href="chickenB.html" class="product-image-link">
+                <img src="img/chickenbreas.png" alt="Chicken Breast"></a>
+                <div class="result-card-info">
+                    <p class="category">Freeze-Dried Treats for Dog and Cat</p><a href="chickenB.html" class="product-title-link">
+                        <h2>Diced Chicken Breast Pet Treat</h2>
+                    </a>
+                    <div class="stars"><img src="img/star.svg" alt="star"></div>
+                    <p class="price-result">$19.5</p>
+                    <button onclick="addToCart(this)">Add to cart</button></div>
+                </article>
+    <article class="result-card">
+      <a href="chickenB.html" class="product-image-link">
+        <img src="img/lamb.png" alt="Lamb Hearts"></a>
+      <div class="result-card-info">
+        <p class="category">Freeze-Dried Treats for Dog and Cat</p>
+        <a href="chickenB.html" class="product-title-link">
+          <h2>Diced Lamb Hearts Pet Treat</h2></a>
+        <div class="stars"><img src="img/star.svg" alt="star"></div>
+        <p class="price-result">$13.7</p>
+        <button onclick="addToCart(this)">Add to cart</button>
+      </div>
+    </article>
+
+    <article class="result-card">
+      <a href="chickenB.html" class="product-image-link">
+        <img src="img/musule.png" alt="Mussels"></a>
+      <div class="result-card-info">
+        <p class="category">Freeze-Dried Treats for Dog and Cat</p>
+        <a href="chickenB.html" class="product-title-link">
+          <h2>Whole Green Lip Mussels Pet Treat</h2></a>
+        <div class="stars"><img src="img/star.svg" alt="star"></div>
+        <p class="price-result">$13.7</p>
+        <button onclick="addToCart(this)">Add to cart</button>
+      </div>
+    </article></div>
+</main>
+
+
+<!-- 这部分是用于结尾-->
+ <footer class="site-footer">
+  <div class="footer">
+    <img class="logo-footer"src="img\frezzylogo.svg" alt="Freeze Dry Australia logo">
+
+    <p>Freeze Dry Australia</p>
+    <p>103-107 Quanda Road Coolum Beach,<br>4573, Queensland</p>
+    <p>info@freezedryaustralia.com</p>
+
+    <a href="https://www.facebook.com/freezedryaustralia/" class="social-icon"><img src="img\facebook1.svg" alt="facebool"></a>
+  </div>
+
+  <div class="footer-links">
+    <h3>Shop</h3>
+    <a href="#">For Dog</a>
+    <a href="#">For Cat</a>
+  </div>
+  <div class="footer-links">
+    <h3>About</h3>
+    <a href="#">Contact us</a>
+    <a href="#">Shipping & Delivery</a>
+    <a href="#">Subscription policy</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">FAQ</a>
+    <a href="#">Term of us</a>
+  </div>
+    <div class="footer-message">
+    <h2>
+      Freeze Dry Australia is the first <br>Freeze Drying Company in Australia that<br>
+      manufactures freeze dried treats and meals<br> for pets.
+    </h2>
+
+    <p>© 2026 Freeze Dry Australia</p>
+  </div>
+</footer>
+
+
+
+      </main>
+
+     
+
+   <!-- 这部分是用于drawer-->
+      <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+      <aside class="cart-drawer" id="cartDrawer">
+
+         <!-- top-->
+        <div class="cart-drawer-head">
+          <div class="drawer-group"><h2>Your Cart</h2>
+        <span class="drawer-cart-count" id="drawer-cart-count">0</span></div>
+        
+        <button class="cart-close" onclick="closeCart()"><svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 0.5L9.6695 9.44026M9.6695 0.5L0.5 9.44026" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button></div>
+
+ <!-- shipping bar-->
+
+<div class="drawer-shipping">
+  <p class="shipping-message">Spend $150.00 more to reach free shipping!</p>
+
+<div class="shipping-bar">
+    <div class="shipping-progress"></div>
+</div>
+</div>
+      <div id="drawer-cart-items"></div>
+    
+  <div class="side-cart-bottom">
+    <div class="side-cart-total">
+      <span>Estimated total</span>
+      <strong>$18.25 AUD</strong>
+    </div>
+
+    <p class="shipping-note">Taxes and shipping calculated at checkout</p>
+    <div class="drawer-buttons">
+      <a href="viewcart.html" class="view-cart-btn">
+        View Cart
+      </a>
+      <a href="checkout.html" class="checkout-btn">
+        Check Out
+      </a>
+    </div>
+  </div>
+</aside>
+
+
+<script src="free.js"></script>
+</body>
+</html>
