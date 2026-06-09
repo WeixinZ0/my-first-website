@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+ <main class="checkout-page">
+
+  <div class="checkout-logo">
+    <a href="index.html">
+      <img src="img/frezzylogo.svg" alt="Freeze Dry Australia logo">
+    </a>
+  </div>
+
+  <a href="viewcart.html" class="checkout-cart-icon cart-link">
+    <svg width="28" height="28" viewBox="0 0 15 15" fill="none">
+      <path d="M9.95211 3.66667C9.95211 5.19696 8.71157 6.4375 7.18128 6.4375C5.65099 6.4375 4.41043 5.19696 4.41043 3.66667M1.19993 1.24518L0.501394 13.1202C0.474651 13.5749 0.836197 13.9583 1.2917 13.9583H13.0708C13.5263 13.9583 13.8879 13.5749 13.8611 13.1202L13.1626 1.24518C13.138 0.826737 12.7914 0.5 12.3723 0.5H1.99023C1.57106 0.5 1.22454 0.826737 1.19993 1.24518Z" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span id="cart-count">0</span>
+  </a>
+
+  <section class="checkout-form">
+
+    <h1>Delivery</h1>
+
+    <div class="checkout-input">
+      <span class="field-label">Country / Region</span>
+      <input type="text" value="Australia">
+    </div>
+
+    <div class="checkout-input">
+      <span class="field-label">First name</span>
+      <input type="text" value="Jessie">
+    </div>
+
+    <div class="checkout-input">
+      <span class="field-label">Last name</span>
+      <input type="text" value="Wang">
+    </div>
+
+    <div class="checkout-input">
+      <span class="field-label">Address</span>
+      <input type="text" value="Queen St, Melbourne VIC 3000">
+    </div>
+
+    <div class="checkout-input">
+      <span class="field-label">Apartment, suite, etc. (optional)</span>
+      <input type="text" value="1103">
+    </div>
+
+    <div class="checkout-input">
+      <span class="field-label">Suburb</span>
+      <input type="text" value="Melbourne">
+    </div>
+
+    <div class="checkout-input">
+      <span class="field-label">State / Territory</span>
+      <input type="text" value="Victoria">
+    </div>
+
+    <div class="checkout-input">
+      <span class="field-label">Postcode</span>
+      <input type="text" value="3000">
+    </div>
+
+    <div class="checkout-input">
+      <span class="field-label">Phone number</span>
+      <input type="text" value="123456789">
+    </div>
+
+    <h2>Shipping method</h2>
+
+
+
+    <button class="shipping-option active" type="button">
+      <span>Flat rate:</span>
+      <strong>$5.00</strong>
+    </button>
+
+    <button class="shipping-option" type="button">
+      <span>Australia Post Express Post:</span>
+      <strong>$23.00</strong>
+    </button>
+
+ <div class="checkout-total">
+
+  <div class="checkout-total-row">
+    <strong>Total</strong>
+    <strong id="grand-total">$0AUD</strong>
+  </div>
+
+  <p>Flat rate shipping included</p>
+
+</div>
+
+    <a href="index.html?order=success" class="pay-now-btn">Pay now</a>
+
+  </section>
+
+</main>
+
+
+<script src="free.js"></script>
+</body>
+</html>

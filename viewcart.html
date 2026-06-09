@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>for result page</title>
+    <title>Freezy homepage</title>
     <link rel="stylesheet" href="home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +44,7 @@
 </svg>
 
           </a>  
-           <a href="#" class="cart-link" onclick="openCart(event)"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <a href="#" class="cart-link" onclick="openCart(event)"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M9.95211 3.66667C9.95211 5.19696 8.71157 6.4375 7.18128 6.4375C5.65099 6.4375 4.41043 5.19696 4.41043 3.66667M1.19993 1.24518L0.501394 13.1202C0.474651 13.5749 0.836197 13.9583 1.2917 13.9583H13.0708C13.5263 13.9583 13.8879 13.5749 13.8611 13.1202L13.1626 1.24518C13.138 0.826737 12.7914 0.5 12.3723 0.5H1.99023C1.57106 0.5 1.22454 0.826737 1.19993 1.24518Z" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
 </svg><span id="cart-count">0</span>
 </a></div>
@@ -52,19 +52,64 @@
 
     </header>
 
-   <main class="result-main">
-    <h1>Search result</h1>
-    <div class="result-search-bar">
-      <img src="img\search-icon.svg" alt="search">
-      <input type="text" value="food">
-    </div>
+      <main class="cart-page">
 
-    <div class="result-quantity">
-      <p>20 Products</p>
-      <div class="result-filter">
-        <span>Filter</span><span>Sort By: Relevant</span>
-    </div></div>
-      
+    <h1>Your Cart</h1>
+    
+   <div class="cart-shipping">
+  <p class="shipping-message">Spend $150.00 more to reach free shipping!</p>
+
+  <div class="shipping-bar">
+    <div class="shipping-progress"></div>
+  </div>
+</div>
+
+    <div class="cart-table">
+
+  <div class="cart-header">
+    <span>Product</span>
+    <span>Price</span>
+    <span>Quantity</span>
+    <span>Total</span>
+  </div>
+
+  <div id="cart-page-items"></div>
+
+</div>
+
+    <div class="cart-summary">
+      <div class="cart-summary-row">
+        <h2>Estimated total</h2>
+        <strong>$18.25 AUD</strong>
+      </div>
+
+      <p>Shipping calculated at checkout</p>
+
+      <a href="checkout.html" class="cart-checkout-btn">Check Out</a>
+
+      <div class="pay-buttons">
+
+  <button class="pay-btn">
+    <img src="img\Group 28.svg" alt="Apple Pay">
+  </button>
+
+  <button class="pay-btn">
+    <img src="img\Group 29.svg" alt="Google Pay">
+  </button>
+
+</div>
+
+  </main>
+
+
+
+
+
+
+<main class="result-main">
+    <h1>You may also like</h1>
+
+    </div>
 
     <div class="result-grid">
         <article class="result-card">
@@ -105,34 +150,8 @@
         </div>
       </article>
 
-      
-
-
-      <article class="result-card">
-         <a href="chickenB.html" class="product-image-link"><img src="img\musule.png" alt="Lamb Hearts">
-</a>
-        <div class="result-card-info">
-          <p class="category">Freeze-Dried Treats for Dog and Cat</p>
-           <a href="chickenB.html" class="product-title-link"><h2> Green Lip Mussels Pet Treat</h2></a>
-          <div class="stars"><img src="img\star.svg" alt="star"></div>
-          <p class="price-result">$18.25</p>
-          <button onclick="addToCart(this)">Add to cart</button>
-        </div>
-      </article>
-      
-
-
-       <article class="result-card">
-        <a href="chickenB.html" class="product-image-link"> <img src="img\dogdailyfo.png" alt="Green Lip Mussels">
-</a>
-        <div class="result-card-info">
-          <p class="category">Daily Food for Cat</p>
-           <a href="chickenB.html" class="product-title-link"><h2>100% Raw Cat Food Lamb Pet Treat</h2></a>
-          <div class="stars"><img src="img\star.svg" alt="star"></div>
-          <p class="price-result">$9.5 - 79.5</p>
-          <button>Choose option</button>
-        </div>
-      </article>
+    
+    
 
     
 
@@ -147,7 +166,31 @@
 
 
 
- <!-- 这部分是用于结尾-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 这部分是用于结尾-->
  <footer class="site-footer">
   <div class="footer">
     <img class="logo-footer"src="img\frezzylogo.svg" alt="Freeze Dry Australia logo">
@@ -181,9 +224,14 @@
 
     <p>© 2026 Freeze Dry Australia</p>
   </div>
-</footer>   
+</footer>
 
-<!-- 这部分是用于drawer-->
+
+
+      </main>
+
+
+   <!-- 这部分是用于drawer-->
       <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
       <aside class="cart-drawer" id="cartDrawer">
 
@@ -199,8 +247,7 @@
 
  <!-- shipping bar-->
 
- <div class="drawer-shipping">
-  <p class="shipping-message">Spend $150.00 more to reach free shipping!</p>
+ <p class="shipping-message">Spend $150.00 more to reach free shipping!</p>
 
 <div class="shipping-bar">
     <div class="shipping-progress"></div>
@@ -226,7 +273,12 @@
   </div>
 </aside>
 
-    <script src="free.js"></script>
+
+
+  
+
+    
+      <script src="free.js"></script>
                  
 </body>
 </html>

@@ -96,7 +96,8 @@ let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
 
 const cartCount = document.getElementById("cart-count");
 const drawerCartCount = document.getElementById("drawer-cart-count");
-const cartItemsContainer = document.getElementById("cart-items");
+const drawerCartItems = document.getElementById("drawer-cart-items");
+const cartPageItems = document.getElementById("cart-page-items");
 
 function saveCart() {
   localStorage.setItem("cartItems", JSON.stringify(cart));
@@ -133,45 +134,81 @@ function addToCart(btnCard) {
   saveCart();
   renderCart();
   openCart();
+  updateShippingBar();
 }
 
 //写入html的信息在cart
+
 function renderCart() {
-  cartItemsContainer.innerHTML = "";
-  cart.forEach(item => {
-    cartItemsContainer.innerHTML += `
-      <div class="side-cart-item">
+  if (drawerCartItems) {
+    drawerCartItems.innerHTML = "";
 
-        <img src="${item.image}" alt="${item.name}">
+    cart.forEach(item => {
+      drawerCartItems.innerHTML += `
+        <div class="side-cart-item">
+          <img src="${item.image}" alt="${item.name}">
 
-        <div class="side-cart-sentence">
+          <div class="side-cart-sentence">
+            <div class="side-cart-info">
+              <div>
+                <p class="side-cart-category">${item.category}</p>
+                <h3>${item.name}</h3>
+                <p>${item.price}</p>
+              </div>
 
-          <div class="side-cart-info">
-            <div>
-              <p class="side-cart-category">${item.category}</p>
-              <h3>${item.name}</h3>
-              <p>${item.price}</p>
+              <button class="remove-items" onclick="removeItem('${item.name}')">
+                <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0.5 0.5L9.6695 9.44026M9.6695 0.5L0.5 9.44026"
+      stroke="#12284C"
+      stroke-linecap="round"
+      stroke-linejoin="round"/>
+  </svg>
+              </button>
             </div>
 
-            <button class="remove-items"
-              onclick="removeItem('${item.name}')">
-             <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 0.5L9.6695 9.44026M9.6695 0.5L0.5 9.44026" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-</button></div>
-          
+            <div class="quantity-item">
+              <button onclick="changeQuantity('${item.name}', -1)">-</button>
+              <span>${item.qty}</span>
+              <button onclick="changeQuantity('${item.name}', 1)">+</button>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  if (cartPageItems) {
+    cartPageItems.innerHTML = "";
+
+    cart.forEach(item => {
+      cartPageItems.innerHTML += `
+        <div class="cart-row">
+          <div class="cart-product">
+            <img src="${item.image}" alt="${item.name}">
+            <div>
+              <p class="cart-category">${item.category}</p>
+              <h3>${item.name}</h3>
+            </div>
+          </div>
+
+          <p class="cart-price">${item.price}</p>
+
           <div class="quantity-item">
             <button onclick="changeQuantity('${item.name}', -1)">-</button>
             <span>${item.qty}</span>
             <button onclick="changeQuantity('${item.name}', 1)">+</button>
           </div>
 
+          <p class="cart-total">$${(parseFloat(item.price.replace("$", "")) * item.qty).toFixed(2)}</p>
         </div>
-      </div>
-    `;
-  });
+      `;
+    });
+  }
 
   updateCartCount();
+  updateCartTotal();
+  updateShippingBar();
+  updateCheckoutTotal();
 }
 
 function changeQuantity(name, value) {
@@ -187,6 +224,8 @@ function changeQuantity(name, value) {
 
   saveCart();
   renderCart();
+  updateShippingBar();
+  updateCheckoutTotal();
 }
 
 function removeItem(name) {
@@ -194,6 +233,8 @@ function removeItem(name) {
 
   saveCart();
   renderCart();
+  updateShippingBar();
+  updateCheckoutTotal();
 }
 
 function openCart(event) {
@@ -208,13 +249,90 @@ function closeCart() {
   document.getElementById("cartOverlay").classList.remove("active");
 }
 
-renderCart();
+document.addEventListener("DOMContentLoaded", renderCart);
+
+
+function updateCartTotal() {
+  const total = cart.reduce((sum, item) => {
+    const priceNumber = parseFloat(item.price.replace("$", ""));
+    return sum + priceNumber * item.qty;
+  }, 0);
+
+  document.querySelectorAll(".side-cart-total strong, .cart-summary strong")
+    .forEach(totalText => {
+      totalText.textContent = `$${total.toFixed(2)} AUD`;
+    });
+}
 
 
 
+//free
+function updateShippingBar() {
+  const total = cart.reduce((sum, item) => {
+    const price = parseFloat(item.price.replace("$", ""));
+    return sum + price * item.qty;
+  }, 0);
+
+  const freeShippingTarget = 150;
+  const remaining = freeShippingTarget - total;
+  const progress = Math.min((total / freeShippingTarget) * 100, 100);
+
+  const shippingMessages = document.querySelectorAll(".shipping-message");
+  const shippingProgressBars = document.querySelectorAll(".shipping-progress");
+
+  shippingMessages.forEach(message => {
+    if (total >= freeShippingTarget) {
+      message.textContent = "You have free shipping!";
+    } else {
+      message.textContent = `Spend $${remaining.toFixed(2)} more to reach free shipping!`;
+    }
+  });
+
+  shippingProgressBars.forEach(bar => {
+    bar.style.width = `${progress}%`;
+  });
+}
+
+function updateCheckoutTotal() {
+
+  const subtotal = cart.reduce((sum, item) => {
+    const price = parseFloat(item.price.replace("$", ""));
+    return sum + price * item.qty;
+  }, 0);
+
+  const grandTotal = subtotal + 5;
+
+  const grandTotalText =
+    document.getElementById("grand-total");
+
+  if (grandTotalText) {
+    grandTotalText.textContent =
+      `$${grandTotal.toFixed(2)} AUD`;
+  }
+}
 
 
 
+function showOrderPopup() {
+  const params = new URLSearchParams(window.location.search);
 
+  if (params.get("order") === "success") {
+    const orderOverlay = document.getElementById("orderOverlay");
 
+    if (orderOverlay) {
+      orderOverlay.classList.add("active");
+    }
+  }
+}
 
+function closeOrderPopup() {
+  const orderOverlay = document.getElementById("orderOverlay");
+
+  if (orderOverlay) {
+    orderOverlay.classList.remove("active");
+  }
+
+  window.history.replaceState({}, document.title, "index.html");
+}
+
+document.addEventListener("DOMContentLoaded", showOrderPopup);

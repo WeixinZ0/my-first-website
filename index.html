@@ -182,6 +182,7 @@
 
       </main>
 
+     
 
    <!-- 这部分是用于drawer-->
       <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
@@ -199,13 +200,14 @@
 
  <!-- shipping bar-->
 
- <div class="drawer-shipping">
-  <p>Spend $131.75 more to reach free shipping!</p>
-  
+<div class="drawer-shipping">
+  <p class="shipping-message">Spend $150.00 more to reach free shipping!</p>
 
-  <div class="shipping-bar">
-      <div class="shipping-progress"></div></div></div>
-      <div id="cart-items"></div>
+<div class="shipping-bar">
+    <div class="shipping-progress"></div>
+</div>
+</div>
+      <div id="drawer-cart-items"></div>
     
   <div class="side-cart-bottom">
     <div class="side-cart-total">
@@ -215,7 +217,7 @@
 
     <p class="shipping-note">Taxes and shipping calculated at checkout</p>
     <div class="drawer-buttons">
-      <a href="cart.html" class="view-cart-btn">
+      <a href="viewcart.html" class="view-cart-btn">
         View Cart
       </a>
       <a href="checkout.html" class="checkout-btn">
@@ -229,7 +231,12 @@
 
   
 
-    
+     <div class="order-overlay" id="orderOverlay">
+  <div class="order-popup">
+    <h1>Thank you! Your order's<br>confirmed</h1>
+    <button onclick="closeOrderPopup()">Confirm</button>
+  </div>
+</div>
       <script src="free.js"></script>
                  
 </body>
