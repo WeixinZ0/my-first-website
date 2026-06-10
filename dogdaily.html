@@ -62,15 +62,16 @@
   </div>
   <!-- left scroll image area -->
   <div class="product-gallery">
-    <img src="img/chickenbreas.png" alt="Chicken Breast">
-    <img src="img\treatchiken.png" alt="Chicken Breast Detail">
-    <img src="img\dogimage.jpg" alt="Chicken Breast Detail">
+    <img src="img\catfood-daily.png" alt="Chicken Breast">
+    <img src="img\lambl-back-scaled-s.jpg" alt="Chicken Breast Detail">
+    <img src="img\lamb.jpg" alt="Chicken Breast Detail">
+    
   </div>
 
   <!-- right product info -->
   <div class="product-info">
 
-    <h1>Freeze Dried Diced Chicken Breast <br>Pet Treats</h1>
+    <h1>100% Raw Cat Food Lamb<br></h1>
 
      <div class="product-stars"><svg width="166" height="22" viewBox="0 0 83 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M5.17037 0.154885C5.26928 -0.051631 5.56405 -0.0516256 5.66296 0.154885L7.09312 3.14062C7.13294 3.22375 7.21224 3.28115 7.30378 3.29318L10.5957 3.72545C10.8234 3.75536 10.9145 4.03528 10.7479 4.1929L8.34015 6.46977C8.27304 6.53326 8.2427 6.62626 8.25955 6.71694L8.8641 9.96916C8.90592 10.1943 8.66742 10.3672 8.4656 10.2581L5.54677 8.67994C5.46563 8.63606 5.3677 8.63606 5.28656 8.67994L2.36774 10.2581C2.16593 10.3672 1.92741 10.1943 1.96925 9.96916L2.57377 6.71694C2.59062 6.62626 2.56029 6.53326 2.49319 6.46977L0.085462 4.1929C-0.0812089 4.03528 0.0099266 3.75536 0.237643 3.72545L3.52953 3.29318C3.62111 3.28115 3.70038 3.22375 3.7402 3.14062L5.17037 0.154885Z" fill="#FF8929"/>
@@ -80,28 +81,67 @@
 <path d="M77.1704 0.154885C77.2693 -0.051631 77.5641 -0.0516256 77.663 0.154885L79.0931 3.14062C79.1329 3.22375 79.2122 3.28115 79.3038 3.29318L82.5957 3.72545C82.8234 3.75536 82.9145 4.03528 82.7479 4.1929L80.3401 6.46978C80.273 6.53326 80.2427 6.62626 80.2596 6.71694L80.8641 9.96916C80.9059 10.1943 80.6674 10.3672 80.4656 10.2581L77.5468 8.67994C77.4656 8.63606 77.3677 8.63606 77.2866 8.67994L74.3677 10.2581C74.1659 10.3672 73.9274 10.1943 73.9693 9.96916L74.5738 6.71694C74.5906 6.62626 74.5603 6.53326 74.4932 6.46978L72.0855 4.1929C71.9188 4.03528 72.0099 3.75536 72.2376 3.72545L75.5295 3.29318C75.6211 3.28115 75.7004 3.22375 75.7402 3.14062L77.1704 0.154885Z" fill="#FF8929"/>
 </svg>
 </div>
+     
 
-    <p class="product-price">
-      $19.5 <span>Including GST</span>
-    </p>
+<p class="product-price">
+  <span id="product-price">$9.5</span>
+  <span>Including GST</span>
+</p>
 
-    <p class="product-size">Size: 100GM</p>
+<div class="size-options">
+<button class="size-btn active"
+  data-id="cat-raw-lamb-25g"
+  data-size="25GM"
+  data-price="$9.5">
+  25GM
+</button>
 
-    <div class="purchase-type">
-      <button class="purchase-active">Purchase one time</button>
-      <button>Subscribe and save 10%</button>
-    </div>
+<button class="size-btn"
+  data-id="cat-raw-lamb-250g"
+  data-size="250GM"
+  data-price="$42.5">
+  250GM
+</button>
 
-    <div class="product-buy"><button onclick="addProductPageToCart(this)"
-        class="add-cart-btn"
-        data-id="chicken-breast"
-        data-name="Diced Chicken Breast Pet Treat"
-        data-category="Freeze-Dried Treats for Dog and Cat"
-        data-price="$19.5"
-        data-image="img/chickenbreas.png">Add to cart - $19.5</button>
-    </div>
+<button class="size-btn"
+  data-id="cat-raw-lamb-500g"
+  data-size="500GM"
+  data-price="$79.5">
+  500GM
+</button>
 
-    <div class="accordion">
+</div>
+
+<p class="product-size">
+  Size:
+  <span id="current-size">25GM</span>
+</p>
+
+
+ <div class="purchase-type">
+  <button class="purchase-active">
+    Purchase one time
+  </button>
+
+  <button>
+    Subscribe and save 10%
+  </button>
+</div>
+
+<div class="product-buy">
+  <button
+    onclick="addProductPageToCart(this)"
+    class="add-cart-btn"
+    data-id="cat-raw-lamb-25g"
+    data-name="100% Raw Cat Food Lamb"
+    data-category="Daily Food for Cat"
+    data-price="$9.5"
+    data-image="img/catfood-daily.png">
+    Add to cart - $9.5
+  </button>
+</div>
+
+<div class="accordion">
 
       <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
@@ -113,7 +153,7 @@
 
         </button>
         <div class="accordion-content">
-          <p>Freeze Dry Australia’s Chicken Breast Chunks are made from 100% Chicken Breast making them a lean, protein-rich treat. </p>
+          <p>100% Raw Cat Food lamb has been designed by one of Australia’s leading pet nutritionists. A premium blend crafted to delight and nourish your feline companion. </p>
         </div>
       </div>
 
@@ -125,7 +165,7 @@
 </svg>
         </button>
         <div class="accordion-content">
-          <p>Chicken breast chunks support pet health, boost the immune system, and aid weight loss.</p>
+          <p>Made with only the finest ingredients including Lamb, Salmon, Spinach, Pumpkin, Green Lipped Mussel, Chicory, and Blueberry, this recipe offers a balanced diet that supports your cat’s health and well-being.</p>
         </div>
       </div>
 
@@ -151,23 +191,24 @@ As with all treats, we recommend adjusting your cat’s main meal portions accor
 </svg>
         </button>
         <div class="accordion-content">
-          <p>Ingredients: 100% Chicken Breast. Weight: 0.1kg.</p>
+          <p>Ingredients:  Lamb, Salmon, Spinach, Pumpkin, Green Lipped Mussel, Chicory, Blueberry. <br>Weight: 100% RAW CAT FOOD – LAMB 25GM, 100% RAW CAT FOOD – LAMB 250GM, <br>100% RAW CAT FOOD – LAMB 500GM.</p>
         </div></div></div>
     </div></main>
     <main class="result-main product-recommend">
         <h1>You may also like</h1>
         <div class="result-grid">
-             <article class="result-card" data-id="dog-food-daily">
-        <a href="dogdaily.html" class="product-image-link"> <img src="img\catfood-daily.png" alt="Green Lip Mussels">
-</a>
-        <div class="result-card-info">
-          <p class="category">Daily Food for Cat</p>
-           <a href="img\catfood-daily.png" class="product-title-link"><h2>100% Raw Cat Food Lamb Pet Treat</h2></a>
-          <div class="stars"><img src="img\star.svg" alt="star"></div>
-          <p class="price-result">$9.5 - 79.5</p>
-          <a href="dogdaily.html" class="choose-option-btn">Choose option</a>
-        </div>
-      </article>
+              <article class="result-card" data-id="chicken-breast">
+      <a href="chickenB.html" class="product-image-link">
+        <img src="img\chickenbreas.png" alt="Lamb Hearts"></a>
+      <div class="result-card-info">
+        <p class="category">Freeze-Dried Treats for Dog and Cat</p>
+        <a href="chickenB.html" class="product-title-link">
+          <h2>Diced Chicken Breast Pet Treat</h2></a>
+        <div class="stars"><img src="img/star.svg" alt="star"></div>
+        <p class="price-result">$19.5</p>
+        <button onclick="addToCart(this)">Add to cart</button>
+      </div>
+    </article>
     <article class="result-card" data-id="lamb-hearts">
       <a href="lamb.html" class="product-image-link">
         <img src="img/lamb.png" alt="Lamb Hearts"></a>

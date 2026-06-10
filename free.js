@@ -117,19 +117,21 @@ function addToCart(btnCard) {
   const category = card.querySelector(".category").textContent;
   const price = card.querySelector(".price-result").textContent;
   const image = card.querySelector("img").src;
-  const existing = cart.find(item => item.name === name);
+  const id = card.dataset.id;
+  const existing = cart.find(item => item.id === id);
 
-  if (existing) {
-    existing.qty += 1;
-  } else {
-    cart.push({
-      name,
-      category,
-      price,
-      image,
-      qty: 1
-    });
-  }
+if (existing) {
+  existing.qty += 1;
+} else {
+  cart.push({
+    id,
+    name,
+    category,
+    price,
+    image,
+    qty: 1
+  });
+}
 
   saveCart();
   renderCart();
@@ -156,10 +158,11 @@ function renderCart() {
               <div>
                 <p class="side-cart-category">${item.category}</p>
                 <h3>${item.name}</h3>
+                ${item.size ? `<p class="cart-size">Size: ${item.size}</p>` : ""}
                 <p>${item.price}</p>
               </div>
 
-              <button class="remove-items" onclick="removeItem('${item.name}')">
+              <button class="remove-items" onclick="removeItem('${item.id}')">
                 <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M0.5 0.5L9.6695 9.44026M9.6695 0.5L0.5 9.44026"
       stroke="#12284C"
@@ -170,9 +173,9 @@ function renderCart() {
             </div>
 
             <div class="quantity-item">
-              <button onclick="changeQuantity('${item.name}', -1)">-</button>
+              <button onclick="changeQuantity('${item.id}', -1)">-</button>
               <span>${item.qty}</span>
-              <button onclick="changeQuantity('${item.name}', 1)">+</button>
+              <button onclick="changeQuantity('${item.id}', 1)">+</button>
             </div>
           </div>
         </div>
@@ -197,9 +200,9 @@ function renderCart() {
           <p class="cart-price">${item.price}</p>
 
           <div class="quantity-item">
-            <button onclick="changeQuantity('${item.name}', -1)">-</button>
+            <button onclick="changeQuantity('${item.id}', -1)">-</button>
             <span>${item.qty}</span>
-            <button onclick="changeQuantity('${item.name}', 1)">+</button>
+            <button onclick="changeQuantity('${item.id}', 1)">+</button>
           </div>
 
           <p class="cart-total">$${(parseFloat(item.price.replace("$", "")) * item.qty).toFixed(2)}</p>
@@ -214,15 +217,15 @@ function renderCart() {
   updateCheckoutTotal();
 }
 
-function changeQuantity(name, value) {
-  const product = cart.find(item => item.name === name);
+function changeQuantity(id, value) {
+  const product = cart.find(item => item.id === id);
 
   if (!product) return;
 
   product.qty += value;
 
   if (product.qty <= 0) {
-    cart = cart.filter(item => item.name !== name);
+    cart = cart.filter(item => item.id !== id);
   }
 
   saveCart();
@@ -231,26 +234,33 @@ function changeQuantity(name, value) {
   updateCheckoutTotal();
 }
 
-function removeItem(name) {
-  cart = cart.filter(item => item.name !== name);
+function removeItem(id) {
+  cart = cart.filter(item => item.id !== id);
 
   saveCart();
   renderCart();
   updateShippingBar();
   updateCheckoutTotal();
+
   document.querySelectorAll(".result-card").forEach(card => {
+    if (card.dataset.id === id) {
+      const button = card.querySelector("button");
 
-  const nameInCard = card.querySelector("h2").textContent;
+      if (button) {
+        button.textContent = "Add to cart";
+        button.disabled = false;
+        button.classList.remove("in-cart");
+      }
+    }
+  });
 
-  if (nameInCard === name) {
-
-    const button = card.querySelector("button");
-
-    button.textContent = "Add to Cart";
-    button.disabled = false;
-    button.classList.remove("in-cart");
-  }
-});
+  document.querySelectorAll(".add-cart-btn").forEach(button => {
+    if (button.dataset.id === id) {
+      button.textContent = `Add to cart - ${button.dataset.price}`;
+      button.disabled = false;
+      button.classList.remove("in-cart");
+    }
+  });
 }
 
 function openCart(event) {
@@ -363,15 +373,23 @@ function toggleAccordion(button){
 }
 
 function addProductPageToCart(btn) {
-  const product = {
-    name: "Freeze Dried Diced Chicken Breast Pet Treats",
-    category: "Freeze-Dried Treats for Dog and Cat",
-    price: "$19.5",
-    image: "img/chickenbreas.png",
-    qty: 1
-  };
+ const product = {
+  id: btn.dataset.id,
+  name: btn.dataset.name,
+  category: btn.dataset.category,
+  price: btn.dataset.price,
+  size: btn.dataset.size,
+  image: btn.dataset.image,
+  qty: 1
+};
+  
 
-  const existing = cart.find(item => item.name === product.name);
+  if (!product.name || !product.category || !product.price || !product.image) {
+    console.log("Product data missing", product);
+    return;
+  }
+
+  const existing = cart.find(item => item.id === product.id);
 
   if (existing) {
     existing.qty += 1;
@@ -383,8 +401,61 @@ function addProductPageToCart(btn) {
   renderCart();
   openCart();
 
-  btn.textContent = "In Cart";
-  btn.disabled = true;
-  btn.classList.add("in-cart");
+ const oldText = btn.textContent;
+
+btn.textContent = "In Cart";
+
+setTimeout(() => {
+  btn.textContent = oldText;
+}, 4000);
 }
 
+
+function clearCart() {
+  cart = [];
+
+  localStorage.removeItem("cartItems");
+
+  updateCartCount();
+}
+
+
+const sizeButtons =
+document.querySelectorAll(".size-btn");
+
+const productPrice =
+document.getElementById("product-price");
+
+const currentSize =
+document.getElementById("current-size");
+
+const addCartBtn =
+document.querySelector(".add-cart-btn");
+
+sizeButtons.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    sizeButtons.forEach(btn =>
+      btn.classList.remove("active")
+    );
+
+    button.classList.add("active");
+
+    const price =button.dataset.price;
+
+    const size = button.dataset.size;
+
+    productPrice.textContent =price;
+
+    currentSize.textContent = size;
+
+    addCartBtn.textContent = `Add to cart - ${price}`;
+
+    addCartBtn.dataset.price =
+      price;
+      addCartBtn.dataset.id = button.dataset.id;
+      addCartBtn.dataset.size = size;
+  });
+
+});

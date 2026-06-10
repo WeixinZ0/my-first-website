@@ -829,7 +829,8 @@ svg path {
   font-family: "Roboto", sans-serif;
 }
 
-.result-card-info button {
+.result-card-info button,
+.result-card-info .choose-option-btn{
   width: 100%;
   height: 42px;
   border: none;
@@ -840,11 +841,18 @@ svg path {
   font-family: "Roboto", sans-serif;
   cursor: pointer;
   transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 
-.result-card-info button:hover {
+.result-card-info button:hover,
+.result-card-info .choose-option-btn:hover{
   color: #F8F6F2;
 }
+
+
 
 .product-image-link,
 .product-title-link {
@@ -1736,3 +1744,31 @@ width: 100%;
   background:#12284C;
   color:#F8F6F2;
 }
+
+.size-options{
+  display:flex;
+  gap:1rem;
+  margin:1rem 0;
+}
+
+.size-btn{
+  width:6rem;
+  height:2rem;
+  border-radius:999px;
+  border:1px solid #12284C;
+  background:#F8F6F2;
+  cursor:pointer;
+}
+
+.size-btn.active{
+  background:#FF8929;
+  border:none;
+}
+
+.cart-size{
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+  color: #ADAEB0;
+}
+
+
