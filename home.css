@@ -1777,6 +1777,7 @@ width: 100%;
 
 .footer-mobile-accordion{
   display:none;
+  color: #12284C;
 }
  
 @media (max-width: 600px) {
@@ -1845,6 +1846,7 @@ width: 100%;
   padding: 0;
   border: none;
   background: none;
+  color: #12284C;
 }
 
 .hamburger-btn svg {
