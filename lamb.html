@@ -23,7 +23,9 @@
     
     <!-- 这部分是用于防止logo等-->
     <header class=" header-on-top">
-        
+         <button class="hamburger-btn" aria-label="Open menu"><svg width="14" height="19" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.45833 9.49999H12.5417M1.45833 4.35416H12.5417M1.45833 14.6458H12.5417" stroke="#12284C" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></button>
         <nav class="nav-left">
           <a href="#">About FREEZE DRY AUSTRALIA</a>
           <a href="#">Shop for Dog</a>
@@ -82,8 +84,9 @@
 </div>
 
     <p class="product-price">
-      $13.7 <span>Including GST</span>
-    </p>
+  <span id="product-price">$13.7</span>
+  <span class="gst-price">Including GST</span>
+</p>
 
     <p class="product-size">Size: 100GM</p>
 
@@ -156,7 +159,7 @@ As with all treats, we recommend adjusting your cat’s main meal portions accor
     </div></main>
   
 
-     <main class="result-main product-recommend">
+    <section class="result-main cart-recommed-section" >
         <h1>You may also like</h1>
         <div class="result-grid">
              <article class="result-card" data-id="dog-daily-food">
@@ -195,12 +198,49 @@ As with all treats, we recommend adjusting your cat’s main meal portions accor
         <button onclick="addToCart(this)">Add to cart</button>
       </div>
     </article></div>
-</main>
+    </section>
 
 
 
 <!-- 这部分是用于结尾-->
  <footer class="site-footer">
+    <div class="footer-mobile-accordion accordion">
+
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleAccordion(this)">
+      <span>Shop</span>
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.94865 13.5217H17.0534M13.001 9.46935V17.5741M0.5 0.5H25.5V25.5H0.5V0.5Z" stroke="#FF8929" stroke-linecap="round"/>
+</svg>
+    </button>
+
+    <div class="accordion-content">
+      <a href="#">For Dogs</a>
+      <a href="#">For Cats</a>
+      <a href="#">Subscribe & Save</a>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-header" onclick="toggleAccordion(this)">
+      <span>About Freeze Dry Australia</span>
+     <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.94865 13.5217H17.0534M13.001 9.46935V17.5741M0.5 0.5H25.5V25.5H0.5V0.5Z" stroke="#FF8929" stroke-linecap="round"/>
+</svg>
+    </button>
+
+    <div class="accordion-content">
+      <a href="#">Contact us</a>
+      <a href="#">Shipping & Delivery</a>
+      <a href="#">Subscription policy</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">FAQ</a>
+      <a href="#">Term of us</a>
+    </div>
+  </div>
+
+</div>
+
   <div class="footer">
     <img class="logo-footer"src="img\frezzylogo.svg" alt="Freeze Dry Australia logo">
 

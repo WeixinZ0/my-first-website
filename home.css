@@ -712,8 +712,15 @@ svg path {
 }
 
 
+.cart-recommed-section {
+  min-height: auto;
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+}
 
-
+.cart-recommed-section h1{
+  margin-bottom: 2rem;
+}
 
 .result-search-bar {
   width: 559px;
@@ -1529,7 +1536,7 @@ width: 100%;
 
 .order-popup button {
   width: 300px;
-  height: 44px;
+  height: 48px;
   border: none;
   border-radius: 1.5rem;
   background: #FF8929;
@@ -1542,7 +1549,7 @@ width: 100%;
   background:#F8F6F2;
   color: #12284C;
   cursor: not-allowed;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 
@@ -1593,19 +1600,20 @@ width: 100%;
 
 .product-price {
   font-size: 2rem;
+  line-height: 1.2;
   color: #12284C;
   margin: 0 0 0.5rem;
 }
 
-.product-price span {
-  font-size: 1rem;
-  color: #ADAEB0;
+.product-price #product-price {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
 }
 
-.product-size {
-  margin: 0 0 2rem;
-  color: #12284C;
+.product-price span:not(#product-price) {
   font-size: 1rem;
+  color: #ADAEB0;
 }
 
 .purchase-type {
@@ -2199,5 +2207,364 @@ width: 100%;
   .footer-message{
     display:none;
   }
+
+.cart-overlay {
+  z-index: 9998;
+}
+
+.cart-drawer {
+  width: 100%;
+  max-width: 390px;
+  right: -100%;
+  top: 0;
+  height: 100dvh;
+  padding: 1.5rem 1.5rem 0;
+  overflow: hidden;
+  z-index: 10000;
+}
+
+.cart-drawer.active {
+  right: 0;
+}
+
+.cart-drawer.active {
+  right: 0;
+}
+
+.cart-drawer-head {
+  align-items: center;
+}
+
+.cart-drawer-head h2 {
+  font-size: 1.5rem;
+}
+
+.drawer-cart-count {
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: 0.8125rem;
+}
+
+.cart-close {
+  width: 2rem;
+  height: 2rem;
+}
+
+.cart-close svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.drawer-shipping {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.drawer-shipping p {
+  font-size: 0.8125rem;
+  line-height: 1.3;
+}
+
+#drawer-cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+
+.side-cart-item {
+  gap: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.side-cart-item img {
+  width: 150px;
+  height: 150px;
+  border-radius: 1rem;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.side-cart-info {
+  gap: 0.75rem;
+}
+
+.side-cart-category {
+  font-size: 0.625rem;
+  line-height: 1.2;
+  margin-bottom: 0.375rem;
+}
+
+.side-cart-info h3 {
+  font-size: 0.875rem;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+.side-cart-info p:last-child {
+  font-size: 0.875rem;
+}
+
+.remove-items svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.quantity-item {
+  width: 6.5rem;
+  height: 2.25rem;
+  margin-top: 0.875rem;
+  border-radius: 999px;
+}
+
+.quantity-item button {
+  width: 2.25rem;
+  font-size: 1rem;
+}
+
+.quantity-item span {
+  font-size: 0.875rem;
+}
+
+.side-cart-bottom {
+  padding: 1rem 0 1.5rem;
+}
+
+.side-cart-total {
+  margin-bottom: 0.5rem;
+}
+
+.side-cart-total span,
+.side-cart-total strong {
+  font-size: 1rem;
+}
+
+.shipping-note {
+  font-size: 0.75rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.drawer-buttons {
+  gap: 0.75rem;
+}
+
+.view-cart-btn,
+.checkout-btn {
+  height: 2.75rem;
+  font-size: 0.875rem;
+}
+
+.search-page {
+  min-height: 100vh;
+  background: #12284C;
+}
+
+.search-top {
+  padding: 1.5rem;
+  gap: 0.75rem;
+  justify-content: space-between;
+}
+
+.search-bar {
+  width: 100%;
+  height: 42px;
+  padding-left: 1rem;
+  padding-right: 0.75rem;
+}
+
+.search-bar > img {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.75rem;
+}
+
+.search-bar input {
+  font-size: 0.875rem;
+}
+
+.close-btn {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  margin-left: 0;
+  border-radius: 0.75rem;
+}
+
+.search-result-layout {
+  display: block;
+  padding: 2rem 1.125rem 3rem;
+}
+
+.products-area h2,
+.search-suggestion h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-search-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.search-card {
+  width: 100%;
+  height: 161px;
+  padding: 0.8125rem 1rem;
+  border-radius: 1.5rem;
+  gap: 1rem;
+}
+
+.search-card > img {
+  width: 129px;
+  height: 135px;
+  border-radius: 1.25rem;
+}
+
+.search-card-info {
+  height: 135px;
+  gap: 0.375rem;
+}
+
+.categorys {
+  font-size: 0.625rem;
+  line-height: 1.2;
+}
+
+.search-card-info h3 {
+  font-size: 0.875rem;
+  line-height: 1.25;
+  min-height: auto;
+}
+
+.stars img {
+  width: 82px;
+}
+
+.prices {
+  font-size: 0.9375rem;
+}
+
+.search-card-info button,
+.search-view-btn {
+  height: 2rem;
+  min-width: 4.5rem;
+  padding: 0 1rem;
+  font-size: 0.75rem;
+  border-radius: 999px;
+}
+
+.search-suggestion {
+  width: 100%;
+  margin-top: 2.5rem;
+}
+
+.search-suggestion a {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.view-all-btn {
+  width: 100%;
+  height: 42px;
+  margin-top: 2rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+}
+
+.result-main {
+  padding: 2rem 1.125rem 3rem;
+}
+
+.result-main h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.result-search-bar {
+  width: 100%;
+  height: 42px;
+  margin: 0 auto 1.5rem;
+  padding: 0 1rem;
+}
+
+.result-search-bar img {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.75rem;
+}
+
+.result-search-bar input {
+  font-size: 0.875rem;
+}
+
+.result-quantity {
+  margin-bottom: 1.5rem;
+}
+
+.result-quantity p,
+.result-filter span {
+  font-size: 0.75rem;
+}
+
+.result-filter {
+  gap: 1rem;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.result-card {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.result-card img {
+  height: 160px;
+  object-fit: cover;
+}
+
+.result-card-info {
+  padding: 0.75rem;
+  min-height: 145px;
+}
+
+.category {
+  font-size: 0.5625rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.result-card-info h2 {
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+.result-card .stars {
+  margin-bottom: 0.375rem;
+}
+
+.result-card .stars img {
+  width: 48px;
+  height: auto;
+}
+
+.price-result {
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.result-card-info button,
+.result-card-info .choose-option-btn {
+  height: 32px;
+  font-size: 0.6875rem;
+  border-radius: 999px;
+}
 
 }
